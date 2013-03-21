@@ -33,7 +33,7 @@ void enableIROut(int val){
 void enablePWM(){
 //  Serial.println("Enabling PWM");
   TCCR2A |= _BV(COM2B1);
-  delayMicroseconds(350);
+  delayMicroseconds(400);
 }
 
 void disablePWM(){
@@ -59,7 +59,7 @@ void setup()
 
 void loop() {
 //  Serial.print("On at: ");
-  Serial.print(millis());
+//  Serial.print(millis());
   digitalWrite (REC_POWER, HIGH);
 //  irsend.mark(0);
   enablePWM();
@@ -88,7 +88,7 @@ void loop() {
   }
 //  Serial.println(digitalRead(PIN_DETECT));
 //  Serial.print("Off at: ");
-  Serial.println(x);
-  Serial.flush();
-  LowPower.powerDown(SLEEP_1S, ADC_OFF, BOD_OFF);
+//  Serial.println(x);
+//  Serial.flush();
+  LowPower.powerDown(SLEEP_60MS, ADC_OFF, BOD_OFF);
 }
